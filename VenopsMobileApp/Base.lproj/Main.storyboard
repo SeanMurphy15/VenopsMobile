@@ -1330,26 +1330,6 @@
                                                                 <segue destination="4dM-6X-mIE" kind="show" id="JMP-iu-nLY"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbB-tY-pvJ">
-                                                            <rect key="frame" x="189" y="0.0" width="90" height="25"/>
-                                                            <color key="backgroundColor" red="0.14117647058823529" green="0.50196078431372548" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="90" id="Ffu-va-S44"/>
-                                                                <constraint firstAttribute="height" constant="25" id="xug-kv-gxj"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                            <state key="normal" title="Edit">
-                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                            <connections>
-                                                                <action selector="editTapped:" destination="NrO-vc-Omv" eventType="touchUpInside" id="Amb-Hi-ErI"/>
-                                                            </connections>
-                                                        </button>
                                                         <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrX-pi-UrL" userLabel="CancelEdit">
                                                             <rect key="frame" x="189" y="0.0" width="90" height="25"/>
                                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1369,6 +1349,26 @@
                                                             <connections>
                                                                 <action selector="cancelEdit:" destination="NrO-vc-Omv" eventType="touchUpInside" id="7fX-By-bN1"/>
                                                                 <action selector="editTapped:" destination="NrO-vc-Omv" eventType="touchUpInside" id="RZf-68-Ekz"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbB-tY-pvJ">
+                                                            <rect key="frame" x="189" y="0.0" width="90" height="25"/>
+                                                            <color key="backgroundColor" red="0.14117647058823529" green="0.50196078431372548" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="90" id="Ffu-va-S44"/>
+                                                                <constraint firstAttribute="height" constant="25" id="xug-kv-gxj"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                            <state key="normal" title="Edit">
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="editTapped:" destination="NrO-vc-Omv" eventType="touchUpInside" id="Amb-Hi-ErI"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
