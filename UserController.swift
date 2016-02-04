@@ -208,6 +208,20 @@ class UserController: UIViewController{
         
         
     }
+
+
+    static func registerNewUser(textFields textFields: [String?], completion:(success: Bool, error: NSError?)->Void){
+
+        switch () {
+        case <#constant#>:
+            <#statements#>
+            fallthrough
+            
+        default:
+            break;
+        }
+        
+    }
     
     
     

@@ -16,6 +16,7 @@
 		FF0434CE1C5D36A5004BA4FB /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0434CD1C5D36A5004BA4FB /* FirebaseController.swift */; };
 		FF0434D01C5D37D1004BA4FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0434CF1C5D37D1004BA4FB /* User.swift */; };
 		FF293AB51C63F87600B0D2C6 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF293AB41C63F87600B0D2C6 /* AnimationController.swift */; };
+		FF293AB71C63FDA800B0D2C6 /* AppearanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF293AB61C63FDA800B0D2C6 /* AppearanceController.swift */; };
 		FF30FD2F1C592BB900637A6C /* MicroBlink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF30FD201C592BB900637A6C /* MicroBlink.framework */; };
 		FF30FD301C592BB900637A6C /* en.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF30FD221C592BB900637A6C /* en.strings */; };
 		FF30FD311C592BB900637A6C /* IDCard.png in Resources */ = {isa = PBXBuildFile; fileRef = FF30FD231C592BB900637A6C /* IDCard.png */; };
@@ -100,6 +101,7 @@
 		FF0434CF1C5D37D1004BA4FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FF0463931C5BD0AA00CA3760 /* VenopsMobileApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = VenopsMobileApp.entitlements; sourceTree = "<group>"; };
 		FF293AB41C63F87600B0D2C6 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
+		FF293AB61C63FDA800B0D2C6 /* AppearanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceController.swift; sourceTree = "<group>"; };
 		FF30FD201C592BB900637A6C /* MicroBlink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicroBlink.framework; sourceTree = "<group>"; };
 		FF30FD221C592BB900637A6C /* en.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = en.strings; sourceTree = "<group>"; };
 		FF30FD231C592BB900637A6C /* IDCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IDCard.png; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				FF293AB41C63F87600B0D2C6 /* AnimationController.swift */,
 				FF30FD451C592C2B00637A6C /* UserController.swift */,
 				FF30FD6D1C59654900637A6C /* ScanController.swift */,
+				FF293AB61C63FDA800B0D2C6 /* AppearanceController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				FF0434CE1C5D36A5004BA4FB /* FirebaseController.swift in Sources */,
 				FF56FC561C5C5E33001F5D00 /* ScannerViewController.swift in Sources */,
 				FF30FD7C1C5987E900637A6C /* RegistrationConfirmationTableViewController.swift in Sources */,
+				FF293AB71C63FDA800B0D2C6 /* AppearanceController.swift in Sources */,
 				FF30FD731C5976AB00637A6C /* ImageController.swift in Sources */,
 				FF30FD771C59842700637A6C /* RegistrationTableViewController.swift in Sources */,
 				FFE4182D1C5FDA150061BC73 /* AlertExtension.swift in Sources */,
