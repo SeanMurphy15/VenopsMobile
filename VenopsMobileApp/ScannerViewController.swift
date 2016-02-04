@@ -74,6 +74,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     @IBAction func cancelButtonTapped(sender: AnyObject) {
 
         dismissViewControllerAnimated(true, completion: nil)
+        
     }
 
 

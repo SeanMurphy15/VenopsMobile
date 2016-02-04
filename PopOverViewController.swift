@@ -15,6 +15,7 @@ class PopOverViewController: UIViewController {
         super.viewDidLoad()
 
         animateScan()
+        
     }
 
     override func didReceiveMemoryWarning() {

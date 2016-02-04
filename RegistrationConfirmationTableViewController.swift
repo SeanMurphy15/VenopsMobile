@@ -30,6 +30,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addProfilePhoto: UIButton!
     @IBOutlet weak var editPhoto: UIButton!
+
     
     
     var mode:ViewMode = .defaultView
@@ -66,13 +67,9 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         
         switch mode {
         case .defaultView:
+
             let defaultTextGrey = colorWithHexString("3c3c3c")
-            
-            let identifier = "6ba1324b-43ec-436b-89f2-7a3a770f2b1c"
-            
-            ImageController.downloadProfileImage(identifier: identifier) { (profileImage, success) -> Void in
-                self.profileImageView.image = profileImage
-            }
+
             
             confirmButton.enabled = false
             editButton.enabled = true
@@ -108,7 +105,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
             editPhoto.setTitle("", forState: .Normal)
             editPhoto.alpha = 0.0
             
-            
+
         case .editView:
             confirmButton.enabled = true
             addProfilePhoto.userInteractionEnabled = true
@@ -153,17 +150,20 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
     
     @IBAction func editTapped(sender: AnyObject) {
         updateViewForMode(ViewMode.editView)
+
     }
     
     
     @IBAction func cancelEdit(sender: AnyObject) {
         updateViewForMode(ViewMode.defaultView)
+        
     }
-   
+
 
     @IBAction func addProfileImageButtonTapped(sender: AnyObject) {
 
         uploadImageFromCameraSource()
+        
     }
 
     
@@ -179,59 +179,11 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
 
-        if usernameTextField.text != "" && emailField.text != "" && passwordField.text != "" && addressTextField.text != "" && cityTextField.text != "" && stateTextField.text != "" && zipcodeTextField.text != "" {
 
-            let firstName = UserController.publishUserDataFromNSUserDefaults("firstName")
-            let lastName = UserController.publishUserDataFromNSUserDefaults("lastName")
-            let middleName = UserController.publishUserDataFromNSUserDefaults("middleName")
-            let dateOfBirth = UserController.publishUserDataFromNSUserDefaults("dateOfBirth")
-            let licenseNumber = UserController.publishUserDataFromNSUserDefaults("licenseNumber")
-            
             self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().endIgnoringInteractionEvents()
 
-            UserController.createUser(emailField.text!, password: passwordField.text!, firstName: firstName, middleName: middleName, lastName: lastName, username: usernameTextField.text!, dateOfBirth: dateOfBirth, city: cityTextField.text!, state: stateTextField.text!, zipcode: zipcodeTextField.text, licenseNumber: licenseNumber, completion: { (success, user, error) -> Void in
 
-                if success {
-
-                    if let profileImage = self.profileImageView.image {
-
-                        if let identifier = UserController.sharedController.currentUser.identifier {
-
-                        ImageController.saveProfileImage(identifier: identifier, image: profileImage, completion: { (success) -> Void in
-
-                            if success {
-                                self.generalAlert(title: "Success!", message: "Profile saved successfully!", actionTitle: "OK")
-
-                            } else {
-                                self.activityIndicator.stopAnimating()
-                                UIApplication.sharedApplication().endIgnoringInteractionEvents()
-
-                                self.generalAlert(title: "Error", message: "Unable to save.", actionTitle: "OK")
-                            }
-                        })
-
-                        } else {
-                            self.activityIndicator.stopAnimating()
-                            UIApplication.sharedApplication().endIgnoringInteractionEvents()
-
-                            print("user identifier was nil")
-                
-                        }
-                    } else {
-                        self.activityIndicator.stopAnimating()
-                        UIApplication.sharedApplication().endIgnoringInteractionEvents()
-
-                        print("no profile image")
-                    }
-                } else {
-                    self.activityIndicator.stopAnimating()
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
-
-                    self.generalAlert(title: "Error", message: "\(error?.localizedDescription)", actionTitle: "OK")
-                }
-            })
-            
             
             self.view.endEditing(true)
             self.emailField.resignFirstResponder()
@@ -249,13 +201,15 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
             self.zipcodeTextField.resignFirstResponder()
             
 
-        } else {
+
             self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().endIgnoringInteractionEvents()
 
-            generalAlert(title: "Incomplete Submission", message: "All fields must be filled in to continue!", actionTitle: "Ok")
-        }
+            
+
     }
+
+
 
     //MARK: - IMAGE PICKER FUNCTIONALITY
 
@@ -326,5 +280,6 @@ extension RegistrationConfirmationTableViewController: UITextFieldDelegate {
         let scrollNewDestination = CGPointMake(0.0, yNewCoordinate)
 //        scrollView.setContentOffset(scrollNewDestination, animated: true)
     }
+
     
 }

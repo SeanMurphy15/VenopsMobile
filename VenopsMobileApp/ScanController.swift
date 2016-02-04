@@ -17,6 +17,8 @@ class ScanController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
 
         let barCodeTypes = [AVMetadataObjectTypePDF417Code]
 
+
+
 //        AVMetadataObjectTypeUPCECode,
 //        AVMetadataObjectTypeCode39Code,
 //        AVMetadataObjectTypeCode39Mod43Code,
