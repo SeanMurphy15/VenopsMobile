@@ -20,12 +20,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
@@ -40,13 +35,13 @@ class LoginViewController: UIViewController {
 
                 } else {
 
-                    print("error authentication user")
+                    self.generalAlert(title: "Error", message: "Unable to authenticate user.", actionTitle: "OK")
                 }
             })
 
         } else {
 
-            print("Create an Alert for incomplete fields")
+            self.generalAlert(title: "Incomplete Submission", message: "Make sure all fields are filled in!", actionTitle: "OK")
         }
     }
 
@@ -58,11 +53,11 @@ class LoginViewController: UIViewController {
 
                 if (error != nil) {
 
-                    print("Create alert for error")
+                    self.generalAlert(title: "Error", message: "\(error?.localizedDescription)", actionTitle: "OK")
 
                 } else {
                     
-                    print("Create alert for succesfully sent email")
+                    self.emailSentAlert(self.emailTextField.text, actionTitle: "OK")
                 }
             })
         }

@@ -64,7 +64,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
             } else {
 
-                self.generalAlert(title: "Error", message: "Unable to scan driver's license! Make sure the surface is clean and visible!", actionTitle: "Confirm")
+                self.generalAlert(title: "Error", message: "Unable to scan driver's license! Make sure the surface is clean and visible!", actionTitle: "OK")
             }
         }
 
@@ -93,7 +93,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             }
         }
 
-        //MARK: - POPOVER CONTROLLER
+        //MARK: - POPOVER FUNCTIONALITY
 
         if segue.identifier == "showPopOver" {
             let popOver = segue.destinationViewController

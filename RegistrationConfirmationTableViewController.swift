@@ -25,11 +25,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
     // MARK: - BUTTONS
 
     @IBAction func addProfileImageButtonTapped(sender: AnyObject) {
@@ -88,7 +84,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
        
     }
 
-    //MARK: - IMAGE PICKER FUNCTIONS AND PERSISTANCE
+    //MARK: - IMAGE PICKER FUNCTIONALITY
 
     func uploadImageFromCameraSource(){
 
