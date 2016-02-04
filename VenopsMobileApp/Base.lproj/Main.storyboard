@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NrO-vc-Omv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NrO-vc-Omv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -887,7 +887,7 @@
                         <sections>
                             <tableViewSection id="WQj-au-Wnj">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="51" id="O6D-BQ-44C">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="51" id="O6D-BQ-44C">
                                         <rect key="frame" x="0.0" y="44" width="600" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O6D-BQ-44C" id="ZFU-hT-S55">
@@ -896,18 +896,18 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4XJ-Jd-3uc">
                                                     <rect key="frame" x="275" y="1" width="50" height="50"/>
-                                                    <color key="backgroundColor" red="0.49076704545454541" green="0.49076704545454541" blue="0.49076704545454541" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.82745098039999998" green="0.82745098039999998" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="dy8-gl-3HA"/>
                                                         <constraint firstAttribute="height" constant="50" id="lfk-0e-7b2"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                    <state key="normal" title="Add Profile Photo">
+                                                    <state key="normal" title="Profile Photo">
                                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="25"/>
+                                                            <integer key="value" value="0"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
@@ -917,7 +917,7 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="P9R-VC-JN5">
                                                     <rect key="frame" x="275" y="1" width="50" height="50"/>
-                                                    <color key="backgroundColor" red="0.4907670455" green="0.4907670455" blue="0.4907670455" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.82745098039999998" green="0.82745098039999998" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="14u-yR-ew4"/>
                                                         <constraint firstAttribute="width" constant="50" id="RuI-kr-btO"/>
@@ -928,7 +928,7 @@
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="25"/>
+                                                            <integer key="value" value="0"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
@@ -938,13 +938,14 @@
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-hx-fuw" userLabel="Profile Image View">
                                                     <rect key="frame" x="275" y="1" width="50" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="3Aa-V0-G4a"/>
                                                         <constraint firstAttribute="width" constant="50" id="qka-vM-jG3"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="25"/>
+                                                            <integer key="value" value="0"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
@@ -1308,12 +1309,32 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euf-qv-xIR">
                                                     <rect key="frame" x="116" y="3" width="368" height="28"/>
                                                     <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3YX-f8-cRS" userLabel="editCancel">
+                                                            <rect key="frame" x="189" y="0.0" width="90" height="25"/>
+                                                            <color key="backgroundColor" red="0.18805239900000001" green="0.18805239900000001" blue="0.18805239900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="90" id="pBf-OZ-OCh"/>
+                                                                <constraint firstAttribute="height" constant="25" id="r6N-K3-JU8"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                            <state key="normal" title="Cancel?">
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="editCancelTapped:" destination="NrO-vc-Omv" eventType="touchUpInside" id="vEX-n9-GpK"/>
+                                                            </connections>
+                                                        </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJw-1i-nhg">
                                                             <rect key="frame" x="86" y="0.0" width="90" height="25"/>
                                                             <color key="backgroundColor" red="0.62352941179999999" green="0.76078431369999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="90" id="PB7-S1-uuA"/>
-                                                                <constraint firstAttribute="height" constant="25" id="mkr-1s-8xQ"/>
+                                                                <constraint firstAttribute="height" constant="25" id="BF9-RW-p9n"/>
+                                                                <constraint firstAttribute="width" constant="90" id="fS8-nQ-xBZ"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                             <state key="normal" title="Confirm">
@@ -1330,33 +1351,12 @@
                                                                 <segue destination="4dM-6X-mIE" kind="show" id="JMP-iu-nLY"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrX-pi-UrL" userLabel="CancelEdit">
-                                                            <rect key="frame" x="189" y="0.0" width="90" height="25"/>
-                                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="25" id="Gcw-5g-Lv8"/>
-                                                                <constraint firstAttribute="width" constant="90" id="oOi-UY-Ldo"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                            <state key="normal" title="Edit">
-                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                            <connections>
-                                                                <action selector="cancelEdit:" destination="NrO-vc-Omv" eventType="touchUpInside" id="7fX-By-bN1"/>
-                                                                <action selector="editTapped:" destination="NrO-vc-Omv" eventType="touchUpInside" id="RZf-68-Ekz"/>
-                                                            </connections>
-                                                        </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbB-tY-pvJ">
                                                             <rect key="frame" x="189" y="0.0" width="90" height="25"/>
                                                             <color key="backgroundColor" red="0.14117647058823529" green="0.50196078431372548" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="90" id="Ffu-va-S44"/>
-                                                                <constraint firstAttribute="height" constant="25" id="xug-kv-gxj"/>
+                                                                <constraint firstAttribute="width" constant="90" id="A8d-eH-BVI"/>
+                                                                <constraint firstAttribute="height" constant="25" id="Q6p-ny-KSX"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                             <state key="normal" title="Edit">
@@ -1374,24 +1374,24 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="FbB-tY-pvJ" secondAttribute="trailing" constant="89" id="GZf-cz-W6j"/>
-                                                        <constraint firstAttribute="bottom" secondItem="TrX-pi-UrL" secondAttribute="bottom" constant="3" id="Loh-go-tCC"/>
-                                                        <constraint firstAttribute="trailing" secondItem="TrX-pi-UrL" secondAttribute="trailing" constant="89" id="Qjk-t6-4Ie"/>
-                                                        <constraint firstItem="CJw-1i-nhg" firstAttribute="leading" secondItem="euf-qv-xIR" secondAttribute="leading" constant="86" id="VKM-m2-ebX"/>
-                                                        <constraint firstAttribute="bottom" secondItem="CJw-1i-nhg" secondAttribute="bottom" constant="3" id="Y33-zk-4Jv"/>
-                                                        <constraint firstItem="TrX-pi-UrL" firstAttribute="top" secondItem="euf-qv-xIR" secondAttribute="top" id="cVf-bR-th9"/>
-                                                        <constraint firstItem="FbB-tY-pvJ" firstAttribute="top" secondItem="euf-qv-xIR" secondAttribute="top" id="gp2-Ot-Ow1"/>
-                                                        <constraint firstItem="CJw-1i-nhg" firstAttribute="top" secondItem="euf-qv-xIR" secondAttribute="top" id="hm7-Ec-6ZI"/>
-                                                        <constraint firstAttribute="bottom" secondItem="FbB-tY-pvJ" secondAttribute="bottom" constant="3" id="ipd-9f-CQW"/>
+                                                        <constraint firstAttribute="trailing" secondItem="FbB-tY-pvJ" secondAttribute="trailing" constant="89" id="38T-rx-TeC"/>
+                                                        <constraint firstAttribute="height" constant="28" id="Kno-PY-yej"/>
+                                                        <constraint firstItem="CJw-1i-nhg" firstAttribute="top" secondItem="euf-qv-xIR" secondAttribute="top" id="Lg7-km-cUE"/>
+                                                        <constraint firstItem="3YX-f8-cRS" firstAttribute="top" secondItem="euf-qv-xIR" secondAttribute="top" id="Lre-ul-SHi"/>
+                                                        <constraint firstAttribute="bottom" secondItem="3YX-f8-cRS" secondAttribute="bottom" constant="3" id="Vvf-qd-aZc"/>
+                                                        <constraint firstItem="CJw-1i-nhg" firstAttribute="leading" secondItem="euf-qv-xIR" secondAttribute="leading" constant="86" id="cPB-Sc-IC8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="3YX-f8-cRS" secondAttribute="trailing" constant="89" id="e1q-DW-ZKD"/>
+                                                        <constraint firstAttribute="width" constant="368" id="ffb-Rj-6ID"/>
+                                                        <constraint firstAttribute="bottom" secondItem="CJw-1i-nhg" secondAttribute="bottom" constant="3" id="o5F-vd-miC"/>
+                                                        <constraint firstItem="FbB-tY-pvJ" firstAttribute="top" secondItem="euf-qv-xIR" secondAttribute="top" id="tA6-dF-eDV"/>
+                                                        <constraint firstAttribute="bottom" secondItem="FbB-tY-pvJ" secondAttribute="bottom" constant="3" id="tpD-vJ-Qlz"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="euf-qv-xIR" firstAttribute="width" secondItem="Nad-FX-2yS" secondAttribute="width" constant="-232" id="F0V-MO-riS"/>
-                                                <constraint firstItem="euf-qv-xIR" firstAttribute="centerX" secondItem="Nad-FX-2yS" secondAttribute="centerX" id="Rbx-Ou-jhH"/>
-                                                <constraint firstItem="euf-qv-xIR" firstAttribute="height" secondItem="Nad-FX-2yS" secondAttribute="height" constant="-4" id="UVR-9N-DEe"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="euf-qv-xIR" secondAttribute="bottom" constant="-7" id="fTU-ex-ILR"/>
-                                                <constraint firstItem="euf-qv-xIR" firstAttribute="top" secondItem="Nad-FX-2yS" secondAttribute="topMargin" constant="-5" id="nhj-WT-otJ"/>
+                                                <constraint firstItem="euf-qv-xIR" firstAttribute="centerX" secondItem="Nad-FX-2yS" secondAttribute="centerX" id="V38-eX-hbg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="euf-qv-xIR" secondAttribute="bottom" constant="-7" id="aXx-Zr-JEv"/>
+                                                <constraint firstItem="euf-qv-xIR" firstAttribute="top" secondItem="Nad-FX-2yS" secondAttribute="topMargin" constant="-5" id="scZ-Yr-mRB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1441,11 +1441,11 @@
                     <connections>
                         <outlet property="addProfilePhoto" destination="4XJ-Jd-3uc" id="LiL-Vx-W0V"/>
                         <outlet property="addressTextField" destination="AFL-Mm-Hkc" id="jD4-fb-k50"/>
-                        <outlet property="cancelEdit" destination="TrX-pi-UrL" id="8YO-rV-spj"/>
                         <outlet property="cityTextField" destination="oqK-JU-O6o" id="B5d-51-oRr"/>
                         <outlet property="confirmButton" destination="CJw-1i-nhg" id="ggP-zL-LME"/>
                         <outlet property="dobField" destination="Iza-sk-FiQ" id="Jqs-8Y-Huc"/>
                         <outlet property="editButton" destination="FbB-tY-pvJ" id="P3p-Lh-zfp"/>
+                        <outlet property="editCancel" destination="3YX-f8-cRS" id="O1U-na-U5T"/>
                         <outlet property="editPhoto" destination="P9R-VC-JN5" id="QYH-vX-LUh"/>
                         <outlet property="emailField" destination="vwc-b2-BPT" id="ar0-TV-eAL"/>
                         <outlet property="firstnameField" destination="un6-2T-YFv" id="VU4-Y7-dKH"/>
@@ -1475,7 +1475,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZNH-5F-M8W" id="7uO-Z1-SNk">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

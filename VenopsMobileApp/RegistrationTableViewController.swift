@@ -13,7 +13,6 @@ import Firebase
 class RegistrationTableViewController: UITableViewController{
 
 
-
     @IBOutlet weak var highlightView: UIView!
 
     @IBOutlet weak var usernameTextField: UITextField!
@@ -30,9 +29,7 @@ class RegistrationTableViewController: UITableViewController{
 
     @IBOutlet weak var zipcodeTextField: UITextField!
 
-
-
-
+    
     override func viewDidLoad() {
 
 

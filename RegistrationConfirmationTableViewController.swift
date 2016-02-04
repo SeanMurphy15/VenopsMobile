@@ -11,7 +11,7 @@ import Firebase
 
 class RegistrationConfirmationTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var licenseNumberField: UITextField!
@@ -25,12 +25,13 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var zipcodeTextField: UITextField!
     
+    @IBOutlet weak var editCancel: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var cancelEdit: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addProfilePhoto: UIButton!
     @IBOutlet weak var editPhoto: UIButton!
-
+    
     
     
     var mode:ViewMode = .defaultView
@@ -42,7 +43,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         case defaultView
         case editView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,12 +68,12 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         
         switch mode {
         case .defaultView:
-
+            
             let defaultTextGrey = colorWithHexString("3c3c3c")
-
             
             confirmButton.enabled = false
             editButton.enabled = true
+            editButton.userInteractionEnabled = true
             addProfilePhoto.userInteractionEnabled = false
             usernameTextField.userInteractionEnabled = false
             firstnameField.userInteractionEnabled = false
@@ -100,14 +101,18 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
             
             profileImageView.alpha = 1.0
             addProfilePhoto.alpha = 1.0
+            editButton.alpha = 1.0
             
             editPhoto.userInteractionEnabled = false
             editPhoto.setTitle("", forState: .Normal)
             editPhoto.alpha = 0.0
             
-
         case .editView:
             confirmButton.enabled = true
+            editCancel.enabled = true
+            editCancel.userInteractionEnabled = true
+            editButton.enabled = false
+            editButton.userInteractionEnabled = false
             addProfilePhoto.userInteractionEnabled = true
             usernameTextField.userInteractionEnabled = true
             firstnameField.userInteractionEnabled = true
@@ -135,37 +140,35 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
             
             profileImageView.alpha = 0.0
             addProfilePhoto.alpha = 0.0
+            editButton.alpha = 0.0
             
             editPhoto.userInteractionEnabled = true
             editPhoto.setTitle("EDIT", forState: .Normal)
             editPhoto.alpha = 1.0
         }
     }
-
     
     
-
+    
+    
     
     // MARK: - BUTTONS
     
     @IBAction func editTapped(sender: AnyObject) {
         updateViewForMode(ViewMode.editView)
-
+        
     }
     
     
-    @IBAction func cancelEdit(sender: AnyObject) {
+    @IBAction func editCancelTapped(sender: AnyObject) {
         updateViewForMode(ViewMode.defaultView)
-        
     }
-
-
+    
+    
     @IBAction func addProfileImageButtonTapped(sender: AnyObject) {
-
         uploadImageFromCameraSource()
-        
     }
-
+    
     
     @IBAction func confirmButtonTapped(sender: AnyObject) {
         
@@ -178,54 +181,55 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         self.activityIndicator.startAnimating()
         
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-
-
-            self.activityIndicator.stopAnimating()
-            UIApplication.sharedApplication().endIgnoringInteractionEvents()
-
-
-            
-            self.view.endEditing(true)
-            self.emailField.resignFirstResponder()
-            self.passwordField.resignFirstResponder()
-            self.usernameTextField.resignFirstResponder()
-            self.firstnameField.resignFirstResponder()
-            self.lastnameField.resignFirstResponder()
-            self.dobField.resignFirstResponder()
-            self.licenseNumberField.resignFirstResponder()
-            self.emailField.resignFirstResponder()
-            self.passwordField.resignFirstResponder()
-            self.addressTextField.resignFirstResponder()
-            self.cityTextField.resignFirstResponder()
-            self.stateTextField.resignFirstResponder()
-            self.zipcodeTextField.resignFirstResponder()
-            
-
-
-            self.activityIndicator.stopAnimating()
-            UIApplication.sharedApplication().endIgnoringInteractionEvents()
-
-            
-
+        
+        
+        self.activityIndicator.stopAnimating()
+        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+        
+        self.view.endEditing(true)
+        self.emailField.resignFirstResponder()
+        self.passwordField.resignFirstResponder()
+        self.usernameTextField.resignFirstResponder()
+        self.firstnameField.resignFirstResponder()
+        self.lastnameField.resignFirstResponder()
+        self.dobField.resignFirstResponder()
+        self.licenseNumberField.resignFirstResponder()
+        self.emailField.resignFirstResponder()
+        self.passwordField.resignFirstResponder()
+        self.addressTextField.resignFirstResponder()
+        self.cityTextField.resignFirstResponder()
+        self.stateTextField.resignFirstResponder()
+        self.zipcodeTextField.resignFirstResponder()
+        
+        self.activityIndicator.stopAnimating()
+        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+        
     }
-
-
-
+    
+    
+    
     //MARK: - IMAGE PICKER FUNCTIONALITY
-
+    
     func uploadImageFromCameraSource(){
-
+        
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePicker.allowsEditing = false
         self.presentViewController(imagePicker, animated: true, completion: nil)
-
+        
     }
-
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-
-        profileImageView.image = image
+        
+        ImageController.saveSelectedProfileImage(image)
+        
+        
+        let profileResize = ImageController.resizeImage(image, newWidth: 50.0)
+        
+        updateViewForMode(ViewMode.defaultView)
+        
+        profileImageView.image = profileResize
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -257,29 +261,13 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
 }
 
 extension RegistrationConfirmationTableViewController: UITextFieldDelegate {
-    
     // Dismiss TextField
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
-    // MARK: Shift View on Keyboard Appearance and Removal
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            
-            let yCoordinate = self.view.frame.origin.y + keyboardSize.height
-            let scrollDestination = CGPointMake(0.0, yCoordinate)
-//            scrollView.setContentOffset(scrollDestination, animated: true)
-        }
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        
-        let yNewCoordinate = self.view.frame.origin.y
-        let scrollNewDestination = CGPointMake(0.0, yNewCoordinate)
-//        scrollView.setContentOffset(scrollNewDestination, animated: true)
-    }
+}
 
+extension RegistrationConfirmationTableViewController {
     
 }

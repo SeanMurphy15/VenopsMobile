@@ -79,11 +79,18 @@ class ImageController{
         }
         
     }
+    
+    
+    //nsuserDefaults image upload func
+    
 
     static func saveSelectedProfileImage(image: UIImage){
 
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(image, forKey: "profileImage")
+//        defaults.setObject(image, forKey: "profileImage")
+        
+        let imageData : NSData = UIImageJPEGRepresentation(image, (0.7))!
+        defaults.setObject(imageData, forKey: "profileImage")
 
     }
 
