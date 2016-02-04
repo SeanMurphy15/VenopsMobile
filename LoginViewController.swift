@@ -41,7 +41,6 @@ class LoginViewController: UIViewController {
                 } else {
 
                     print("error authentication user")
-
                 }
             })
 
@@ -60,14 +59,13 @@ class LoginViewController: UIViewController {
                 if (error != nil) {
 
                     print("Create alert for error")
+
                 } else {
                     
                     print("Create alert for succesfully sent email")
                 }
             })
         }
-        
-        
     }
 }
 

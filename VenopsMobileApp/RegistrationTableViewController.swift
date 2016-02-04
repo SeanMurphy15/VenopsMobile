@@ -49,12 +49,37 @@ class RegistrationTableViewController: UITableViewController{
 
     @IBAction func scanIDButtonTapped(sender: AnyObject) {
 
+        UserController.saveUserDataToNSUserDefaults(usernameTextField.text, key: "username")
+        UserController.saveUserDataToNSUserDefaults(emailTextField.text, key: "email")
+        UserController.saveUserDataToNSUserDefaults(passwordTextField.text, key: "password")
+        
         performSegueWithIdentifier("toScanner", sender: nil)
     }
 
     @IBAction func registerButtonTapped(sender: AnyObject) {
 
         performSegueWithIdentifier("toRegisterConfirmationViewController", sender: nil)
+
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        if segue.identifier == "toRegisterConfirmationViewController" {
+            if let registrationConfirmationTableViewController = segue.destinationViewController as?
+                RegistrationConfirmationTableViewController {
+
+                _ = registrationConfirmationTableViewController.view
+                registrationConfirmationTableViewController.usernameTextField.text = usernameTextField.text
+                registrationConfirmationTableViewController.emailTextField.text = emailTextField.text
+                registrationConfirmationTableViewController.passwordTextField.text = passwordTextField.text
+                registrationConfirmationTableViewController.zipcodeTextField.text = zipcodeTextField.text
+                registrationConfirmationTableViewController.cityTextField.text = cityTextField.text
+                registrationConfirmationTableViewController.stateTextField.text = stateTextField.text
+                registrationConfirmationTableViewController.addressTextField.text = addressTextField.text
+
+            }
+        }
+        
     }
    
 }

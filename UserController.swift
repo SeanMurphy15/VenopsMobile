@@ -45,6 +45,23 @@ class UserController: UIViewController{
         }
     }
 
+    static func saveUserDataToNSUserDefaults(userData: String?, key: String){
+
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue(userData, forKey: key)
+    }
+
+    static func publishUserDataFromNSUserDefaults(key: String) -> String?{
+
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let userData = defaults.valueForKey(key)
+        {
+            return userData as? String
+        }
+
+        return nil
+    }
+
 
     static func userForIdentifier(identifier: String, completion: (user: User?) -> Void) {
 
@@ -119,7 +136,7 @@ class UserController: UIViewController{
         }
     }
 
-    static func createUser(email: String, password: String, firstName: String?, lastName: String?, username: String?, dateOfBirth: String?, city: String?, state: String?, zipcode: String?, licenseNumber: String?, completion: (success: Bool, user: User?, error: NSError?) -> Void) {
+    static func createUser(email: String, password: String, firstName: String?, middleName: String?, lastName: String?, username: String?, dateOfBirth: String?, city: String?, state: String?, zipcode: String?, licenseNumber: String?, completion: (success: Bool, user: User?, error: NSError?) -> Void) {
 
         FirebaseController.base.createUser(email, password: password) { (error, response) -> Void in
 
@@ -129,7 +146,7 @@ class UserController: UIViewController{
                 completion(success: false, user: nil, error: error)
             } else {
                 if let uid = response["uid"] as? String {
-                    var user = User(email: email, uid: uid, firstName: firstName, lastName: lastName, username: username, dateOfBirth: dateOfBirth, city: city, state: state, zipcode: zipcode, licenseNumber: licenseNumber)
+                    var user = User(email: email, uid: uid, firstName: firstName, middleName: middleName, lastName: lastName, username: username, dateOfBirth: dateOfBirth, city: city, state: state, zipcode: zipcode, licenseNumber: licenseNumber)
                     user.save()
 
                     authenticateUser(email, password: password, completion: { (success, user) -> Void in

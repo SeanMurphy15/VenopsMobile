@@ -14,7 +14,7 @@ class PopOverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        animateGreenRing()
+        animateScan()
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,7 +22,7 @@ class PopOverViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func animateGreenRing(){
+    func animateScan(){
 
         scanAnimiationView.animationImages = [
             UIImage(named: "scan1")!,

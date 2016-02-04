@@ -80,6 +80,13 @@ class ImageController{
         
     }
 
+    static func saveSelectedProfileImage(image: UIImage){
+
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(image, forKey: "profileImage")
+
+    }
+
     static func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
 
         let scale = newWidth / image.size.width
