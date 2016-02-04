@@ -70,8 +70,8 @@ class RegistrationTableViewController: UITableViewController{
 
                 _ = registrationConfirmationTableViewController.view
                 registrationConfirmationTableViewController.usernameTextField.text = usernameTextField.text
-                registrationConfirmationTableViewController.emailTextField.text = emailTextField.text
-                registrationConfirmationTableViewController.passwordTextField.text = passwordTextField.text
+                registrationConfirmationTableViewController.emailField.text = emailTextField.text
+                registrationConfirmationTableViewController.passwordField.text = passwordTextField.text
                 registrationConfirmationTableViewController.zipcodeTextField.text = zipcodeTextField.text
                 registrationConfirmationTableViewController.cityTextField.text = cityTextField.text
                 registrationConfirmationTableViewController.stateTextField.text = stateTextField.text

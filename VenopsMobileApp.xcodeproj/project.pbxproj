@@ -232,8 +232,8 @@
 			children = (
 				FFE4182F1C5FFEE00061BC73 /* PopOverViewController.swift */,
 				FFE4182A1C5ED73B0061BC73 /* LoginViewController.swift */,
-				FF30FD751C59842700637A6C /* RegistrationTableViewController.swift */,
 				FF56FC551C5C5E33001F5D00 /* ScannerViewController.swift */,
+				FF30FD751C59842700637A6C /* RegistrationTableViewController.swift */,
 				FF30FD7B1C5987E900637A6C /* RegistrationConfirmationTableViewController.swift */,
 			);
 			name = ViewControllers;

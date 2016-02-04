@@ -9,21 +9,16 @@
 import UIKit
 import Firebase
 
-class RegistrationConfirmationTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class RegistrationConfirmationTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
-    
     @IBOutlet weak var licenseNumberField: UITextField!
     @IBOutlet weak var dobField: UITextField!
     @IBOutlet weak var emailField: UITextField!
-
-    
     @IBOutlet weak var passwordField: UITextField!
-    
     @IBOutlet weak var firstnameField: UITextField!
-    
     @IBOutlet weak var lastnameField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
@@ -31,6 +26,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
     @IBOutlet weak var zipcodeTextField: UITextField!
     
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var cancelEdit: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addProfilePhoto: UIButton!
     @IBOutlet weak var editPhoto: UIButton!
@@ -48,16 +44,120 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameTextField.delegate = self
+        firstnameField.delegate = self
+        lastnameField.delegate = self
+        dobField.delegate = self
+        licenseNumberField.delegate = self
+        emailField.delegate = self
+        passwordField.delegate = self
+        addressTextField.delegate = self
+        cityTextField.delegate = self
+        stateTextField.delegate = self
+        zipcodeTextField.delegate = self
+        
+        updateViewForMode(ViewMode.defaultView)
     }
+    
+    
+    // MARK: ViewMode Switch Function
+    func updateViewForMode(mode:ViewMode) {
+        
+        switch mode {
+        case .defaultView:
+            let defaultTextGrey = colorWithHexString("3c3c3c")
+            
+            let identifier = "6ba1324b-43ec-436b-89f2-7a3a770f2b1c"
+            
+            ImageController.downloadProfileImage(identifier: identifier) { (profileImage, success) -> Void in
+                self.profileImageView.image = profileImage
+            }
+            
+            confirmButton.enabled = false
+            editButton.enabled = true
+            addProfilePhoto.userInteractionEnabled = false
+            usernameTextField.userInteractionEnabled = false
+            firstnameField.userInteractionEnabled = false
+            lastnameField.userInteractionEnabled = false
+            dobField.userInteractionEnabled = false
+            licenseNumberField.userInteractionEnabled = false
+            emailField.userInteractionEnabled = false
+            passwordField.userInteractionEnabled = false
+            addressTextField.userInteractionEnabled = false
+            cityTextField.userInteractionEnabled = false
+            stateTextField.userInteractionEnabled = false
+            zipcodeTextField.userInteractionEnabled = false
+            
+            usernameTextField.textColor = defaultTextGrey
+            firstnameField.textColor = defaultTextGrey
+            lastnameField.textColor = defaultTextGrey
+            dobField.textColor = defaultTextGrey
+            licenseNumberField.textColor = defaultTextGrey
+            emailField.textColor = defaultTextGrey
+            passwordField.textColor = defaultTextGrey
+            addressTextField.textColor = defaultTextGrey
+            cityTextField.textColor = defaultTextGrey
+            stateTextField.textColor = defaultTextGrey
+            zipcodeTextField.textColor = defaultTextGrey
+            
+            profileImageView.alpha = 1.0
+            addProfilePhoto.alpha = 1.0
+            
+            editPhoto.userInteractionEnabled = false
+            editPhoto.setTitle("", forState: .Normal)
+            editPhoto.alpha = 0.0
+            
+            
+        case .editView:
+            confirmButton.enabled = true
+            addProfilePhoto.userInteractionEnabled = true
+            usernameTextField.userInteractionEnabled = true
+            firstnameField.userInteractionEnabled = true
+            lastnameField.userInteractionEnabled = true
+            dobField.userInteractionEnabled = true
+            licenseNumberField.userInteractionEnabled = true
+            emailField.userInteractionEnabled = true
+            passwordField.userInteractionEnabled = true
+            addressTextField.userInteractionEnabled = true
+            cityTextField.userInteractionEnabled = true
+            stateTextField.userInteractionEnabled = true
+            zipcodeTextField.userInteractionEnabled = true
+            
+            usernameTextField.textColor = UIColor.blackColor()
+            firstnameField.textColor = UIColor.blackColor()
+            lastnameField.textColor = UIColor.blackColor()
+            dobField.textColor = UIColor.blackColor()
+            licenseNumberField.textColor = UIColor.blackColor()
+            emailField.textColor = UIColor.blackColor()
+            passwordField.textColor = UIColor.blackColor()
+            addressTextField.textColor = UIColor.blackColor()
+            cityTextField.textColor = UIColor.blackColor()
+            stateTextField.textColor = UIColor.blackColor()
+            zipcodeTextField.textColor = UIColor.blackColor()
+            
+            profileImageView.alpha = 0.0
+            addProfilePhoto.alpha = 0.0
+            
+            editPhoto.userInteractionEnabled = true
+            editPhoto.setTitle("EDIT", forState: .Normal)
+            editPhoto.alpha = 1.0
+        }
+    }
+
     
     
 
     
     // MARK: - BUTTONS
-    @IBAction func confirmTapped(sender: AnyObject) {
-    }
     
     @IBAction func editTapped(sender: AnyObject) {
+        updateViewForMode(ViewMode.editView)
+    }
+    
+    
+    @IBAction func cancelEdit(sender: AnyObject) {
+        updateViewForMode(ViewMode.defaultView)
     }
    
 
@@ -66,17 +166,31 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         uploadImageFromCameraSource()
     }
 
+    
     @IBAction func confirmButtonTapped(sender: AnyObject) {
+        
+        self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 100, 100))
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+        self.view.addSubview(self.activityIndicator)
+        
+        self.activityIndicator.startAnimating()
+        
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
 
-        if usernameTextField.text != "" && emailTextField.text != "" && passwordTextField.text != "" && addressTextField.text != "" && cityTextField.text != "" && stateTextField.text != "" && zipcodeTextField.text != "" {
+        if usernameTextField.text != "" && emailField.text != "" && passwordField.text != "" && addressTextField.text != "" && cityTextField.text != "" && stateTextField.text != "" && zipcodeTextField.text != "" {
 
             let firstName = UserController.publishUserDataFromNSUserDefaults("firstName")
             let lastName = UserController.publishUserDataFromNSUserDefaults("lastName")
             let middleName = UserController.publishUserDataFromNSUserDefaults("middleName")
             let dateOfBirth = UserController.publishUserDataFromNSUserDefaults("dateOfBirth")
             let licenseNumber = UserController.publishUserDataFromNSUserDefaults("licenseNumber")
+            
+            self.activityIndicator.stopAnimating()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
 
-            UserController.createUser(emailTextField.text!, password: passwordTextField.text!, firstName: firstName, middleName: middleName, lastName: lastName, username: usernameTextField.text!, dateOfBirth: dateOfBirth, city: cityTextField.text!, state: stateTextField.text!, zipcode: zipcodeTextField.text, licenseNumber: licenseNumber, completion: { (success, user, error) -> Void in
+            UserController.createUser(emailField.text!, password: passwordField.text!, firstName: firstName, middleName: middleName, lastName: lastName, username: usernameTextField.text!, dateOfBirth: dateOfBirth, city: cityTextField.text!, state: stateTextField.text!, zipcode: zipcodeTextField.text, licenseNumber: licenseNumber, completion: { (success, user, error) -> Void in
 
                 if success {
 
@@ -87,34 +201,60 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
                         ImageController.saveProfileImage(identifier: identifier, image: profileImage, completion: { (success) -> Void in
 
                             if success {
-                                print("Profile image saved successfully")
+                                self.generalAlert(title: "Success!", message: "Profile saved successfully!", actionTitle: "OK")
 
                             } else {
+                                self.activityIndicator.stopAnimating()
+                                UIApplication.sharedApplication().endIgnoringInteractionEvents()
 
-                                print("Unable to save image")
+                                self.generalAlert(title: "Error", message: "Unable to save.", actionTitle: "OK")
                             }
                         })
 
                         } else {
+                            self.activityIndicator.stopAnimating()
+                            UIApplication.sharedApplication().endIgnoringInteractionEvents()
 
                             print("user identifier was nil")
+                
                         }
                     } else {
+                        self.activityIndicator.stopAnimating()
+                        UIApplication.sharedApplication().endIgnoringInteractionEvents()
 
                         print("no profile image")
                     }
                 } else {
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
 
                     self.generalAlert(title: "Error", message: "\(error?.localizedDescription)", actionTitle: "OK")
                 }
             })
+            
+            
+            self.view.endEditing(true)
+            self.emailField.resignFirstResponder()
+            self.passwordField.resignFirstResponder()
+            self.usernameTextField.resignFirstResponder()
+            self.firstnameField.resignFirstResponder()
+            self.lastnameField.resignFirstResponder()
+            self.dobField.resignFirstResponder()
+            self.licenseNumberField.resignFirstResponder()
+            self.emailField.resignFirstResponder()
+            self.passwordField.resignFirstResponder()
+            self.addressTextField.resignFirstResponder()
+            self.cityTextField.resignFirstResponder()
+            self.stateTextField.resignFirstResponder()
+            self.zipcodeTextField.resignFirstResponder()
+            
 
         } else {
+            self.activityIndicator.stopAnimating()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
 
             generalAlert(title: "Incomplete Submission", message: "All fields must be filled in to continue!", actionTitle: "Ok")
         }
-
-       
     }
 
     //MARK: - IMAGE PICKER FUNCTIONALITY
@@ -134,6 +274,57 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         profileImageView.image = image
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    
+    // MARK: UI Helpers
+    func colorWithHexString (hex:String) -> UIColor {
+        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).uppercaseString
+        
+        if (cString.hasPrefix("#")) {
+            cString = (cString as NSString).substringFromIndex(1)
+        }
+        
+        if (cString.characters.count != 6) {
+            return UIColor.grayColor()
+        }
+        
+        let rString = (cString as NSString).substringToIndex(2)
+        let gString = ((cString as NSString).substringFromIndex(2) as NSString).substringToIndex(2)
+        let bString = ((cString as NSString).substringFromIndex(4) as NSString).substringToIndex(2)
+        
+        var r:CUnsignedInt = 0, g:CUnsignedInt = 0, b:CUnsignedInt = 0;
+        NSScanner(string: rString).scanHexInt(&r)
+        NSScanner(string: gString).scanHexInt(&g)
+        NSScanner(string: bString).scanHexInt(&b)
+        
+        return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(1))
+    }
+}
 
-
+extension RegistrationConfirmationTableViewController: UITextFieldDelegate {
+    
+    // Dismiss TextField
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // MARK: Shift View on Keyboard Appearance and Removal
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            
+            let yCoordinate = self.view.frame.origin.y + keyboardSize.height
+            let scrollDestination = CGPointMake(0.0, yCoordinate)
+//            scrollView.setContentOffset(scrollDestination, animated: true)
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        
+        let yNewCoordinate = self.view.frame.origin.y
+        let scrollNewDestination = CGPointMake(0.0, yNewCoordinate)
+//        scrollView.setContentOffset(scrollNewDestination, animated: true)
+    }
+    
 }
