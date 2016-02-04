@@ -9,24 +9,57 @@
 import UIKit
 import Firebase
 
-class RegistrationConfirmationTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class RegistrationConfirmationTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+    
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var licenseNumberField: UITextField!
+    @IBOutlet weak var dobField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+
+    
+    @IBOutlet weak var passwordField: UITextField!
+    
+    @IBOutlet weak var firstnameField: UITextField!
+    
+    @IBOutlet weak var lastnameField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var zipcodeTextField: UITextField!
+    
+    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var addProfilePhoto: UIButton!
+    @IBOutlet weak var editPhoto: UIButton!
+    
+    
+    var mode:ViewMode = .defaultView
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView ()
+    
+    
+    // MARK: ViewMode Case Declarations
+    enum ViewMode {
+        case defaultView
+        case editView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
+    
+    
 
     
     // MARK: - BUTTONS
+    @IBAction func confirmTapped(sender: AnyObject) {
+    }
+    
+    @IBAction func editTapped(sender: AnyObject) {
+    }
+   
 
     @IBAction func addProfileImageButtonTapped(sender: AnyObject) {
 
