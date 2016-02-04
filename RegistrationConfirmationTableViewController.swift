@@ -15,6 +15,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var licenseNumberField: UITextField!
+
     @IBOutlet weak var dobField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -24,7 +25,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var zipcodeTextField: UITextField!
-    
+
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var cancelEdit: UIButton!
     @IBOutlet weak var editButton: UIButton!
@@ -207,9 +208,15 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
 
             
 
+<<<<<<< 8a5659bd2f548b1e5d09f3b160908a67e236d741
     }
 
 
+=======
+       
+       
+    }
+>>>>>>> tweeks
 
     //MARK: - IMAGE PICKER FUNCTIONALITY
 
