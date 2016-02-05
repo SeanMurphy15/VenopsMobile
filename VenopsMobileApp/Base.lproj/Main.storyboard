@@ -1367,6 +1367,8 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
+                                                                <action selector="confirmButtonTapped:" destination="NrO-vc-Omv" eventType="touchUpInside" id="s6O-P7-Zty"/>
+                                                                <segue destination="4dM-6X-mIE" kind="show" id="JMP-iu-nLY"/>
                                                                 <action selector="editCancelTapped:" destination="NrO-vc-Omv" eventType="touchUpInside" id="vEX-n9-GpK"/>
                                                             </connections>
                                                         </button>

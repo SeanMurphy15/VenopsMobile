@@ -10,8 +10,13 @@ import UIKit
 import Firebase
 
 class RegistrationConfirmationTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+<<<<<<< HEAD
+    
+    
+=======
 
 
+>>>>>>> feature/CodeOrganization
     @IBOutlet weak var profileImageView: UIImageView!
 
     @IBOutlet weak var usernameTextField: UITextField!
@@ -25,13 +30,18 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var zipcodeTextField: UITextField!
+<<<<<<< HEAD
     
     @IBOutlet weak var editCancel: UIButton!
+=======
+
+>>>>>>> feature/CodeOrganization
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var cancelEdit: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addProfilePhoto: UIButton!
     @IBOutlet weak var editPhoto: UIButton!
+<<<<<<< HEAD
     
     
     
@@ -47,8 +57,20 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        UserController.deleteUserDataFromNSUserDefaults()
+        
+        usernameTextField.delegate = self
+        firstnameField.delegate = self
+        lastnameField.delegate = self
+        dobField.delegate = self
+        licenseNumberField.delegate = self
+        emailField.delegate = self
+        passwordField.delegate = self
+        addressTextField.delegate = self
+        cityTextField.delegate = self
+        stateTextField.delegate = self
+        zipcodeTextField.delegate = self
+        
+        updateViewForMode(ViewMode.defaultView)
     }
     
     
@@ -141,9 +163,20 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
     
     
     
+=======
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        UserController.deleteUserDataFromNSUserDefaults()
+    }
+
+>>>>>>> feature/CodeOrganization
     // MARK: - BUTTONS
-    
+
     @IBAction func editTapped(sender: AnyObject) {
+<<<<<<< HEAD
         updateViewForMode(ViewMode.editView)
         
     }
@@ -151,14 +184,25 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
     
     @IBAction func editCancelTapped(sender: AnyObject) {
         updateViewForMode(ViewMode.defaultView)
+=======
+        // updateViewForMode(ViewMode.editView)
+
+    }
+
+
+    @IBAction func cancelEdit(sender: AnyObject) {
+        // updateViewForMode(ViewMode.defaultView)
+
+>>>>>>> feature/CodeOrganization
     }
     
     
     @IBAction func addProfileImageButtonTapped(sender: AnyObject) {
+<<<<<<< HEAD
         uploadImageFromCameraSource()
     }
-
-
+    
+    
     @IBAction func confirmButtonTapped(sender: AnyObject) {
         
         self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 100, 100))
@@ -193,6 +237,18 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         self.activityIndicator.stopAnimating()
         UIApplication.sharedApplication().endIgnoringInteractionEvents()
         
+    }
+    
+    
+    
+=======
+
+        //  uploadImageFromCameraSource()
+
+    }
+
+
+    @IBAction func confirmButtonTapped(sender: AnyObject) {
 
         ContentController.collectDataFromTextFields(usernameTextField: usernameTextField.text, licenseNumberField: licenseNumberField.text, dobField: dobField.text, emailField: emailField.text, passwordField: passwordField.text, firstnameField: firstnameField.text, lastnameField: lastnameField.text, addressTextField: addressTextField.text, stateTextField: stateTextField.text, zipcodeTextField: zipcodeTextField.text) { (success, error) -> Void in
 
@@ -216,6 +272,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
 
     }
 
+>>>>>>> feature/CodeOrganization
     //MARK: - IMAGE PICKER FUNCTIONALITY
     
     func uploadImageFromCameraSource(){
@@ -245,11 +302,20 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
 }
 
 extension RegistrationConfirmationTableViewController: UITextFieldDelegate {
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature/CodeOrganization
     // Dismiss TextField
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+<<<<<<< HEAD
+}
+
+extension RegistrationConfirmationTableViewController {
+=======
 
     // MARK: Shift View on Keyboard Appearance and Removal
     func keyboardWillShow(notification: NSNotification) {
@@ -271,6 +337,7 @@ extension RegistrationConfirmationTableViewController: UITextFieldDelegate {
     }
 
 
+>>>>>>> feature/CodeOrganization
     
 }
 

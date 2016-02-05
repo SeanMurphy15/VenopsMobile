@@ -10,10 +10,9 @@ import UIKit
 import Firebase
 
 class RegistrationConfirmationTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
 
     @IBOutlet weak var profileImageView: UIImageView!
-
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var licenseNumberField: UITextField!
     @IBOutlet weak var dobField: UITextField!
@@ -26,13 +25,12 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var zipcodeTextField: UITextField!
     
-    @IBOutlet weak var editCancel: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var cancelEdit: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addProfilePhoto: UIButton!
     @IBOutlet weak var editPhoto: UIButton!
-    
+
     
     
     var mode:ViewMode = .defaultView
@@ -44,11 +42,23 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         case defaultView
         case editView
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        UserController.deleteUserDataFromNSUserDefaults()
+        
+        usernameTextField.delegate = self
+        firstnameField.delegate = self
+        lastnameField.delegate = self
+        dobField.delegate = self
+        licenseNumberField.delegate = self
+        emailField.delegate = self
+        passwordField.delegate = self
+        addressTextField.delegate = self
+        cityTextField.delegate = self
+        stateTextField.delegate = self
+        zipcodeTextField.delegate = self
+        
+        updateViewForMode(ViewMode.defaultView)
     }
     
     
@@ -57,12 +67,12 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         
         switch mode {
         case .defaultView:
-            
+
             let defaultTextGrey = colorWithHexString("3c3c3c")
+
             
             confirmButton.enabled = false
             editButton.enabled = true
-            editButton.userInteractionEnabled = true
             addProfilePhoto.userInteractionEnabled = false
             usernameTextField.userInteractionEnabled = false
             firstnameField.userInteractionEnabled = false
@@ -90,18 +100,14 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
             
             profileImageView.alpha = 1.0
             addProfilePhoto.alpha = 1.0
-            editButton.alpha = 1.0
             
             editPhoto.userInteractionEnabled = false
             editPhoto.setTitle("", forState: .Normal)
             editPhoto.alpha = 0.0
             
+
         case .editView:
             confirmButton.enabled = true
-            editCancel.enabled = true
-            editCancel.userInteractionEnabled = true
-            editButton.enabled = false
-            editButton.userInteractionEnabled = false
             addProfilePhoto.userInteractionEnabled = true
             usernameTextField.userInteractionEnabled = true
             firstnameField.userInteractionEnabled = true
@@ -129,36 +135,38 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
             
             profileImageView.alpha = 0.0
             addProfilePhoto.alpha = 0.0
-            editButton.alpha = 0.0
             
             editPhoto.userInteractionEnabled = true
             editPhoto.setTitle("EDIT", forState: .Normal)
             editPhoto.alpha = 1.0
         }
     }
+
     
     
-    
-    
+
     
     // MARK: - BUTTONS
     
     @IBAction func editTapped(sender: AnyObject) {
         updateViewForMode(ViewMode.editView)
+
+    }
+    
+    
+    @IBAction func cancelEdit(sender: AnyObject) {
+        updateViewForMode(ViewMode.defaultView)
         
     }
-    
-    
-    @IBAction func editCancelTapped(sender: AnyObject) {
-        updateViewForMode(ViewMode.defaultView)
-    }
-    
-    
+
+
     @IBAction func addProfileImageButtonTapped(sender: AnyObject) {
+
         uploadImageFromCameraSource()
+        
     }
 
-
+    
     @IBAction func confirmButtonTapped(sender: AnyObject) {
         
         self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 100, 100))
@@ -170,94 +178,99 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         self.activityIndicator.startAnimating()
         
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-        
-        
-        self.activityIndicator.stopAnimating()
-        UIApplication.sharedApplication().endIgnoringInteractionEvents()
-        
-        self.view.endEditing(true)
-        self.emailField.resignFirstResponder()
-        self.passwordField.resignFirstResponder()
-        self.usernameTextField.resignFirstResponder()
-        self.firstnameField.resignFirstResponder()
-        self.lastnameField.resignFirstResponder()
-        self.dobField.resignFirstResponder()
-        self.licenseNumberField.resignFirstResponder()
-        self.emailField.resignFirstResponder()
-        self.passwordField.resignFirstResponder()
-        self.addressTextField.resignFirstResponder()
-        self.cityTextField.resignFirstResponder()
-        self.stateTextField.resignFirstResponder()
-        self.zipcodeTextField.resignFirstResponder()
-        
-        self.activityIndicator.stopAnimating()
-        UIApplication.sharedApplication().endIgnoringInteractionEvents()
-        
-
-        ContentController.collectDataFromTextFields(usernameTextField: usernameTextField.text, licenseNumberField: licenseNumberField.text, dobField: dobField.text, emailField: emailField.text, passwordField: passwordField.text, firstnameField: firstnameField.text, lastnameField: lastnameField.text, addressTextField: addressTextField.text, stateTextField: stateTextField.text, zipcodeTextField: zipcodeTextField.text) { (success, error) -> Void in
-
-            if success {
-
-                UserController.verifiedDataForUserCreation({ (success, error, verifiedData) -> Void in
-
-                    if success {
-
-                        
-                        
-                    }
-                })
 
 
-            } else {
+            self.activityIndicator.stopAnimating()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
 
-                self.generalAlert(title: "Error", message: "\(error?.localizedDescription)", actionTitle: "OK")
-            }
-        }
+
+            
+            self.view.endEditing(true)
+            self.emailField.resignFirstResponder()
+            self.passwordField.resignFirstResponder()
+            self.usernameTextField.resignFirstResponder()
+            self.firstnameField.resignFirstResponder()
+            self.lastnameField.resignFirstResponder()
+            self.dobField.resignFirstResponder()
+            self.licenseNumberField.resignFirstResponder()
+            self.emailField.resignFirstResponder()
+            self.passwordField.resignFirstResponder()
+            self.addressTextField.resignFirstResponder()
+            self.cityTextField.resignFirstResponder()
+            self.stateTextField.resignFirstResponder()
+            self.zipcodeTextField.resignFirstResponder()
+            
+
+
+            self.activityIndicator.stopAnimating()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
+
+            
 
     }
 
+
+
     //MARK: - IMAGE PICKER FUNCTIONALITY
-    
+
     func uploadImageFromCameraSource(){
-        
+
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePicker.allowsEditing = false
         self.presentViewController(imagePicker, animated: true, completion: nil)
-        
+
     }
-    
+
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        
-        ImageController.saveSelectedProfileImage(image)
-        
-        
-        let profileResize = ImageController.resizeImage(image, newWidth: 50.0)
-        
-        updateViewForMode(ViewMode.defaultView)
-        
-        profileImageView.image = profileResize
+
+        profileImageView.image = image
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
-
+    
+    
+    
+    // MARK: UI Helpers
+    func colorWithHexString (hex:String) -> UIColor {
+        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).uppercaseString
+        
+        if (cString.hasPrefix("#")) {
+            cString = (cString as NSString).substringFromIndex(1)
+        }
+        
+        if (cString.characters.count != 6) {
+            return UIColor.grayColor()
+        }
+        
+        let rString = (cString as NSString).substringToIndex(2)
+        let gString = ((cString as NSString).substringFromIndex(2) as NSString).substringToIndex(2)
+        let bString = ((cString as NSString).substringFromIndex(4) as NSString).substringToIndex(2)
+        
+        var r:CUnsignedInt = 0, g:CUnsignedInt = 0, b:CUnsignedInt = 0;
+        NSScanner(string: rString).scanHexInt(&r)
+        NSScanner(string: gString).scanHexInt(&g)
+        NSScanner(string: bString).scanHexInt(&b)
+        
+        return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(1))
+    }
 }
 
 extension RegistrationConfirmationTableViewController: UITextFieldDelegate {
+    
     // Dismiss TextField
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-
+    
     // MARK: Shift View on Keyboard Appearance and Removal
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-
+            
             let yCoordinate = self.view.frame.origin.y + keyboardSize.height
             let scrollDestination = CGPointMake(0.0, yCoordinate)
-            //            scrollView.setContentOffset(scrollDestination, animated: true)
+//            scrollView.setContentOffset(scrollDestination, animated: true)
         }
     }
     
@@ -265,12 +278,8 @@ extension RegistrationConfirmationTableViewController: UITextFieldDelegate {
         
         let yNewCoordinate = self.view.frame.origin.y
         let scrollNewDestination = CGPointMake(0.0, yNewCoordinate)
-        //        scrollView.setContentOffset(scrollNewDestination, animated: true)
-
-
+//        scrollView.setContentOffset(scrollNewDestination, animated: true)
     }
-
 
     
 }
-

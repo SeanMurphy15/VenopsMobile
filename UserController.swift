@@ -62,6 +62,15 @@ class UserController: UIViewController{
         return nil
     }
 
+    static func deleteUserDataFromNSUserDefaults(){
+
+        for key in NSUserDefaults.standardUserDefaults().dictionaryRepresentation().keys {
+            NSUserDefaults.standardUserDefaults().removeObjectForKey(key)
+        }
+    }
+
+
+
 
     static func userForIdentifier(identifier: String, completion: (user: User?) -> Void) {
 
@@ -205,8 +214,103 @@ class UserController: UIViewController{
     static func logoutCurrentUser() {
         FirebaseController.base.unauth()
         UserController.sharedController.currentUser = nil
-        
-        
+
+    }
+
+
+    static func verifiedDataForUserCreation(completion:(success: Bool, error: NSError?, verifiedData: [String:String]?) -> Void){
+
+        let error = NSError?()
+
+        var userDataDictionary = [String:String]()
+
+        switch (1 > 0) {
+        case UserController.publishUserDataFromNSUserDefaults("username") != nil:
+            if let username = UserController.publishUserDataFromNSUserDefaults("username"){
+                userDataDictionary["username"] = username
+                fallthrough
+            } else {
+                print("unable to fetch username")
+            }
+        case UserController.publishUserDataFromNSUserDefaults("licenseNumber") != nil:
+            if let licenseNumber = UserController.publishUserDataFromNSUserDefaults("licenseNumber"){
+                userDataDictionary["licenseNumber"] = licenseNumber
+                fallthrough
+            } else {
+                print("unable to fetch licenseNumber")
+            }
+        case UserController.publishUserDataFromNSUserDefaults("dateOfBirth") != nil:
+            if let dateOfBirth = UserController.publishUserDataFromNSUserDefaults("dateOfBirth"){
+                userDataDictionary["dateOfBirth"] = dateOfBirth
+                fallthrough
+            } else {
+                print("unable to fetch dateOfBirth")
+            }
+        case UserController.publishUserDataFromNSUserDefaults("email") != nil:
+            if let email = UserController.publishUserDataFromNSUserDefaults("email"){
+                userDataDictionary["email"] = email
+                fallthrough
+            } else {
+                print("unable to fetch email")
+            }
+        case UserController.publishUserDataFromNSUserDefaults("password") != nil:
+            if let password = UserController.publishUserDataFromNSUserDefaults("password"){
+                userDataDictionary["password"] = password
+                fallthrough
+            } else {
+                print("unable to fetch password")
+            }
+        case UserController.publishUserDataFromNSUserDefaults("firstName") != nil:
+            if let firstName = UserController.publishUserDataFromNSUserDefaults("firstName"){
+                userDataDictionary["firstName"] = firstName
+                fallthrough
+            } else {
+                print("unable to fetch firstName")
+            }
+        case UserController.publishUserDataFromNSUserDefaults("lastName") != nil:
+            if let lastName = UserController.publishUserDataFromNSUserDefaults("lastName"){
+                userDataDictionary["lastName"] = lastName
+                fallthrough
+            } else {
+                print("unable to fetch lastName")
+            }
+        case UserController.publishUserDataFromNSUserDefaults("address") != nil:
+            if let address = UserController.publishUserDataFromNSUserDefaults("address"){
+                userDataDictionary["address"] = address
+                fallthrough
+            } else {
+                print("unable to fetch address")
+            }
+        case UserController.publishUserDataFromNSUserDefaults("city") != nil:
+            if let city = UserController.publishUserDataFromNSUserDefaults("city"){
+                userDataDictionary["city"] = city
+                fallthrough
+            } else {
+                print("unable to fetch city")
+            }
+        case UserController.publishUserDataFromNSUserDefaults("state") != nil:
+            if let state = UserController.publishUserDataFromNSUserDefaults("state"){
+                userDataDictionary["state"] = state
+                fallthrough
+            } else {
+                print("unable to fetch state")
+            }
+        case UserController.publishUserDataFromNSUserDefaults("zipcode") != nil:
+            if let zipcode = UserController.publishUserDataFromNSUserDefaults("zipcode"){
+                userDataDictionary["zipcode"] = zipcode
+                fallthrough
+            } else {
+                print("unable to fetch zipcode")
+            }
+
+        default:
+
+            completion(success: false, error: error, verifiedData: [:])
+
+            break;
+        }
+
+        completion(success: true, error: error, verifiedData: userDataDictionary)
     }
     
     
