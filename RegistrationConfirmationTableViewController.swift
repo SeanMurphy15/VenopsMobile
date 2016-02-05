@@ -45,6 +45,8 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         case editView
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,11 +64,10 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         
         updateViewForMode(ViewMode.defaultView)
         
-        //erases local NSUserSettingsonLoad
         UserController.deleteUserDataFromNSUserDefaults()
     }
     
-    
+
     // MARK: ViewMode Switch Function
     func updateViewForMode(mode:ViewMode) {
         
@@ -75,10 +76,9 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
             
             let defaultTextGrey = AppearanceController.colorWithHexString("3c3c3c")
             
-            confirmButton.enabled = false
+            confirmButton.enabled = true
             editButton.enabled = true
             editButton.userInteractionEnabled = true
-            addProfilePhoto.userInteractionEnabled = false
             usernameTextField.userInteractionEnabled = false
             firstnameField.userInteractionEnabled = false
             lastnameField.userInteractionEnabled = false
@@ -103,13 +103,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
             stateTextField.textColor = defaultTextGrey
             zipcodeTextField.textColor = defaultTextGrey
             
-            profileImageView.alpha = 1.0
-            addProfilePhoto.alpha = 1.0
             editButton.alpha = 1.0
-            
-            editPhoto.userInteractionEnabled = false
-            editPhoto.setTitle("", forState: .Normal)
-            editPhoto.alpha = 0.0
             
         case .editView:
             confirmButton.enabled = true
@@ -117,7 +111,6 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
             editCancel.userInteractionEnabled = true
             editButton.enabled = false
             editButton.userInteractionEnabled = false
-            addProfilePhoto.userInteractionEnabled = true
             usernameTextField.userInteractionEnabled = true
             firstnameField.userInteractionEnabled = true
             lastnameField.userInteractionEnabled = true
@@ -142,13 +135,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
             stateTextField.textColor = UIColor.blackColor()
             zipcodeTextField.textColor = UIColor.blackColor()
             
-            profileImageView.alpha = 0.0
-            addProfilePhoto.alpha = 0.0
             editButton.alpha = 0.0
-            
-            editPhoto.userInteractionEnabled = true
-            editPhoto.setTitle("EDIT", forState: .Normal)
-            editPhoto.alpha = 1.0
         }
     }
     
@@ -231,35 +218,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
                 self.generalAlert(title: "Error", message: "\(error?.localizedDescription)", actionTitle: "OK")
             }
         }
-        
     }
-    
-    
-    //    //MARK: - IMAGE PICKER FUNCTIONALITY
-    //    func uploadImageFromCameraSource(){
-    //
-    //        let imagePicker = UIImagePickerController()
-    //        imagePicker.delegate = self
-    //        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-    //        imagePicker.allowsEditing = false
-    //        self.presentViewController(imagePicker, animated: true, completion: nil)
-    //
-    //    }
-    //
-    //    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-    //
-    //        ImageController.saveSelectedProfileImage(image)
-    //
-    //
-    //        let profileResize = ImageController.resizeImage(image, newWidth: 50.0)
-    //
-    //        updateViewForMode(ViewMode.defaultView)
-    //
-    //        profileImageView.image = profileResize
-    //        self.dismissViewControllerAnimated(true, completion: nil)
-    //    }
-    
-    
 }
 
 extension RegistrationConfirmationTableViewController: UITextFieldDelegate {

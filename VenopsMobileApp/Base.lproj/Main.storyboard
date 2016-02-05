@@ -70,7 +70,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wSN-jT-pP8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="venopsLogo" translatesAutoresizingMaskIntoConstraints="NO" id="FVf-qt-YzL">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="venops_logoLarge" translatesAutoresizingMaskIntoConstraints="NO" id="FVf-qt-YzL">
                                         <rect key="frame" x="150" y="8" width="300" height="140"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="140" id="mRd-w3-tsP"/>
@@ -172,7 +172,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVO-kO-559">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="venopsLogo" translatesAutoresizingMaskIntoConstraints="NO" id="mBP-cJ-b54">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="venopsLogoSmall" translatesAutoresizingMaskIntoConstraints="NO" id="mBP-cJ-b54">
                                         <rect key="frame" x="147" y="71" width="307" height="58"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="307" id="qOb-3T-xTN"/>
@@ -486,7 +486,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="venopsLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Ouu-rX-TuT">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="venopsLogoSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Ouu-rX-TuT">
                                                     <rect key="frame" x="208" y="5" width="185" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="185" id="NcM-Pq-ZJf"/>
@@ -817,7 +817,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="31"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" alpha="0.89999997615814209" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="license identification number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H4H-52-2uE">
+                                                <textField opaque="NO" clipsSubviews="YES" alpha="0.89999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="license identification number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H4H-52-2uE">
                                                     <rect key="frame" x="20" y="1" width="560" height="30"/>
                                                     <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -830,6 +830,12 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="H4H-52-2uE" firstAttribute="leading" secondItem="c4O-N2-qvW" secondAttribute="leadingMargin" constant="12" id="69A-rh-vHV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="H4H-52-2uE" secondAttribute="bottom" constant="-8" id="6lW-3C-i2O"/>
+                                                <constraint firstItem="H4H-52-2uE" firstAttribute="top" secondItem="c4O-N2-qvW" secondAttribute="topMargin" constant="-7" id="Xyv-7q-z2V"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="H4H-52-2uE" secondAttribute="trailing" constant="12" id="fAD-cL-3NZ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="52" id="1wk-vL-skf">
@@ -1134,7 +1140,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="venopsLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Ekl-4F-XbJ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="venopsLogoSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Ekl-4F-XbJ">
                                                     <rect key="frame" x="208" y="5" width="185" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="1Da-yA-t85"/>
@@ -1142,6 +1148,11 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Ekl-4F-XbJ" secondAttribute="bottom" constant="-3" id="DpD-Mb-wSj"/>
+                                                <constraint firstItem="Ekl-4F-XbJ" firstAttribute="top" secondItem="ZFU-hT-S55" secondAttribute="topMargin" constant="-3" id="ahb-tn-LGM"/>
+                                                <constraint firstItem="Ekl-4F-XbJ" firstAttribute="centerX" secondItem="ZFU-hT-S55" secondAttribute="centerX" id="o6g-UF-89h"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="38" id="5qO-16-nRH">
@@ -1479,15 +1490,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="32" id="Rxc-LU-Iwo">
-                                        <rect key="frame" x="0.0" y="369" width="600" height="32"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="40" id="Rxc-LU-Iwo">
+                                        <rect key="frame" x="0.0" y="369" width="600" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rxc-LU-Iwo" id="Nad-FX-2yS">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="32"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euf-qv-xIR">
-                                                    <rect key="frame" x="116" y="3" width="368" height="28"/>
+                                                    <rect key="frame" x="116" y="10" width="368" height="28"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3YX-f8-cRS" userLabel="editCancel">
                                                             <rect key="frame" x="189" y="0.0" width="90" height="25"/>
@@ -1554,35 +1565,35 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="FbB-tY-pvJ" secondAttribute="trailing" constant="89" id="38T-rx-TeC"/>
-                                                        <constraint firstAttribute="height" constant="28" id="Kno-PY-yej"/>
                                                         <constraint firstItem="CJw-1i-nhg" firstAttribute="top" secondItem="euf-qv-xIR" secondAttribute="top" id="Lg7-km-cUE"/>
                                                         <constraint firstItem="3YX-f8-cRS" firstAttribute="top" secondItem="euf-qv-xIR" secondAttribute="top" id="Lre-ul-SHi"/>
+                                                        <constraint firstAttribute="width" constant="368" id="UAZ-8D-G3S"/>
                                                         <constraint firstAttribute="bottom" secondItem="3YX-f8-cRS" secondAttribute="bottom" constant="3" id="Vvf-qd-aZc"/>
                                                         <constraint firstItem="CJw-1i-nhg" firstAttribute="leading" secondItem="euf-qv-xIR" secondAttribute="leading" constant="86" id="cPB-Sc-IC8"/>
                                                         <constraint firstAttribute="trailing" secondItem="3YX-f8-cRS" secondAttribute="trailing" constant="89" id="e1q-DW-ZKD"/>
-                                                        <constraint firstAttribute="width" constant="368" id="ffb-Rj-6ID"/>
                                                         <constraint firstAttribute="bottom" secondItem="CJw-1i-nhg" secondAttribute="bottom" constant="3" id="o5F-vd-miC"/>
                                                         <constraint firstItem="FbB-tY-pvJ" firstAttribute="top" secondItem="euf-qv-xIR" secondAttribute="top" id="tA6-dF-eDV"/>
                                                         <constraint firstAttribute="bottom" secondItem="FbB-tY-pvJ" secondAttribute="bottom" constant="3" id="tpD-vJ-Qlz"/>
+                                                        <constraint firstAttribute="height" constant="28" id="xvi-IV-sMP"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="euf-qv-xIR" firstAttribute="centerX" secondItem="Nad-FX-2yS" secondAttribute="centerX" id="V38-eX-hbg"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="euf-qv-xIR" secondAttribute="bottom" constant="-7" id="aXx-Zr-JEv"/>
-                                                <constraint firstItem="euf-qv-xIR" firstAttribute="top" secondItem="Nad-FX-2yS" secondAttribute="topMargin" constant="-5" id="scZ-Yr-mRB"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="euf-qv-xIR" secondAttribute="bottom" constant="-6" id="aXx-Zr-JEv"/>
+                                                <constraint firstItem="euf-qv-xIR" firstAttribute="top" secondItem="Nad-FX-2yS" secondAttribute="topMargin" constant="2" id="scZ-Yr-mRB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="27" id="tsn-px-6si">
-                                        <rect key="frame" x="0.0" y="401" width="600" height="27"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="30" id="tsn-px-6si">
+                                        <rect key="frame" x="0.0" y="409" width="600" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tsn-px-6si" id="6p3-QB-iU8">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="27"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bai-j1-055">
-                                                    <rect key="frame" x="246" y="4" width="109" height="20"/>
+                                                    <rect key="frame" x="246" y="6" width="109" height="20"/>
                                                     <color key="backgroundColor" red="0.93442954359999997" green="0.93442954359999997" blue="0.93442954359999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="109" id="0am-2I-EGw"/>
@@ -1603,9 +1614,9 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="bai-j1-055" secondAttribute="bottom" constant="-5" id="CBc-oA-OmH"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="bai-j1-055" secondAttribute="bottom" constant="-4" id="CBc-oA-OmH"/>
                                                 <constraint firstItem="bai-j1-055" firstAttribute="centerX" secondItem="6p3-QB-iU8" secondAttribute="centerX" id="DUu-GO-7hx"/>
-                                                <constraint firstItem="bai-j1-055" firstAttribute="top" secondItem="6p3-QB-iU8" secondAttribute="topMargin" constant="-4" id="foO-QO-XGM"/>
+                                                <constraint firstItem="bai-j1-055" firstAttribute="top" secondItem="6p3-QB-iU8" secondAttribute="topMargin" constant="-2" id="foO-QO-XGM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1747,12 +1758,14 @@
     <resources>
         <image name="license-example" width="300" height="232"/>
         <image name="venopsLogo" width="280" height="136"/>
+        <image name="venopsLogoSmall" width="280" height="136"/>
+        <image name="venops_logoLarge" width="3540" height="506"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Q3l-3k-pBr"/>
         <segue reference="ByX-9J-dWa"/>
-        <segue reference="JMP-iu-nLY"/>
-        <segue reference="6iF-V9-dUY"/>
+        <segue reference="uuJ-se-UKh"/>
+        <segue reference="0eD-OA-Tah"/>
         <segue reference="1kQ-BK-ODb"/>
+        <segue reference="JMP-iu-nLY"/>
     </inferredMetricsTieBreakers>
 </document>
