@@ -1325,8 +1325,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="confirmButtonTapped:" destination="NrO-vc-Omv" eventType="touchUpInside" id="BEB-s6-ySd"/>
-                                                                <action selector="confirmTapped:" destination="NrO-vc-Omv" eventType="touchUpInside" id="zM0-tE-JJz"/>
+                                                                <action selector="confirmButtonTapped:" destination="NrO-vc-Omv" eventType="touchUpInside" id="s6O-P7-Zty"/>
                                                                 <segue destination="4dM-6X-mIE" kind="show" id="JMP-iu-nLY"/>
                                                             </connections>
                                                         </button>
