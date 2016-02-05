@@ -82,8 +82,6 @@ class ImageController{
     
     
     //nsuserDefaults image upload func
-    
-
     static func saveSelectedProfileImage(image: UIImage){
 
         let defaults = NSUserDefaults.standardUserDefaults()

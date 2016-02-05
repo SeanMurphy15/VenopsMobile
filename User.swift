@@ -24,7 +24,7 @@ class User: Equatable, FirebaseType{
 
     var email = ""
     var firstName: String?
-    var middleName: String?
+//    var middleName: String?
     var lastName: String?
     var username: String?
     var dateOfBirth: String?
@@ -43,9 +43,9 @@ class User: Equatable, FirebaseType{
         if let firstName = firstName {
             json.updateValue(firstName, forKey: firstNameKey)
         }
-        if let middleName = middleName {
-            json.updateValue(middleName, forKey: middleNameKey)
-        }
+//        if let middleName = middleName {
+//            json.updateValue(middleName, forKey: middleNameKey)
+//        }
         if let lastName = lastName {
             json.updateValue(lastName, forKey: lastNameKey)
         }
@@ -77,7 +77,7 @@ class User: Equatable, FirebaseType{
 
         self.email = email
         self.firstName = json[firstNameKey] as? String
-        self.middleName = json[middleNameKey] as? String
+//        self.middleName = json[middleNameKey] as? String
         self.lastName = json[lastNameKey] as? String
         self.username = json[usernameKey] as? String
         self.dateOfBirth = json[dateOfBirthKey] as? String
@@ -89,11 +89,11 @@ class User: Equatable, FirebaseType{
     }
 
 
-    init(email: String, uid: String, firstName: String?, middleName: String?, lastName: String?, username: String?, dateOfBirth: String?, city: String?, state: String?, zipcode: String?, licenseNumber: String?) {
+    init(email: String, uid: String, firstName: String?, lastName: String?, username: String?, dateOfBirth: String?, city: String?, state: String?, zipcode: String?, licenseNumber: String?) {
 
         self.email = email
         self.firstName = firstName
-        self.middleName = middleName
+//        self.middleName = middleName
         self.lastName = lastName
         self.username = username
         self.dateOfBirth = dateOfBirth

@@ -16,6 +16,10 @@ class RegistrationTableViewController: UITableViewController{
     @IBOutlet weak var highlightView: UIView!
 
     @IBOutlet weak var usernameTextField: UITextField!
+    
+    @IBOutlet weak var firstNameTextField: UITextField!
+    
+    @IBOutlet weak var lastNameTextField: UITextField!
 
     @IBOutlet weak var emailTextField: UITextField!
 
@@ -27,8 +31,11 @@ class RegistrationTableViewController: UITableViewController{
 
     @IBOutlet weak var stateTextField: UITextField!
 
+    @IBOutlet weak var dateOfBirthTextField: UITextField!
+    
     @IBOutlet weak var zipcodeTextField: UITextField!
 
+    @IBOutlet weak var licenseIDTextField: UITextField!
     
     override func viewDidLoad() {
 
@@ -73,7 +80,6 @@ class RegistrationTableViewController: UITableViewController{
                 registrationConfirmationTableViewController.cityTextField.text = cityTextField.text
                 registrationConfirmationTableViewController.stateTextField.text = stateTextField.text
                 registrationConfirmationTableViewController.addressTextField.text = addressTextField.text
-
             }
         }
         

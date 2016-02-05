@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UploadPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AnimatedPhotoUpload: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var currentImage: UIImageView!
     @IBOutlet var pinchView: UIPinchGestureRecognizer!

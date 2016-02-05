@@ -12,7 +12,8 @@
 		E60105301C57E3EB00536661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E601052F1C57E3EB00536661 /* Assets.xcassets */; };
 		E60105331C57E3EB00536661 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60105311C57E3EB00536661 /* LaunchScreen.storyboard */; };
 		E601053E1C57E3EB00536661 /* VenopsMobileAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E601053D1C57E3EB00536661 /* VenopsMobileAppTests.swift */; };
-		E685B3161C640B9D00726C63 /* UploadPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E685B3151C640B9D00726C63 /* UploadPhotoViewController.swift */; };
+		E685B3161C640B9D00726C63 /* AnimatedPhotoUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = E685B3151C640B9D00726C63 /* AnimatedPhotoUpload.swift */; };
+		E685B31A1C65203500726C63 /* ProfilePhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E685B3191C65203500726C63 /* ProfilePhotoUploadViewController.swift */; };
 		FF0434CC1C5D35DC004BA4FB /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF0434CB1C5D35DC004BA4FB /* Firebase.framework */; };
 		FF0434CE1C5D36A5004BA4FB /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0434CD1C5D36A5004BA4FB /* FirebaseController.swift */; };
 		FF0434D01C5D37D1004BA4FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0434CF1C5D37D1004BA4FB /* User.swift */; };
@@ -98,7 +99,8 @@
 		E60105391C57E3EB00536661 /* VenopsMobileAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenopsMobileAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E601053D1C57E3EB00536661 /* VenopsMobileAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenopsMobileAppTests.swift; sourceTree = "<group>"; };
 		E601053F1C57E3EB00536661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E685B3151C640B9D00726C63 /* UploadPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadPhotoViewController.swift; sourceTree = "<group>"; };
+		E685B3151C640B9D00726C63 /* AnimatedPhotoUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedPhotoUpload.swift; sourceTree = "<group>"; };
+		E685B3191C65203500726C63 /* ProfilePhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePhotoUploadViewController.swift; path = ../ProfilePhotoUploadViewController.swift; sourceTree = "<group>"; };
 		FF0434CB1C5D35DC004BA4FB /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		FF0434CD1C5D36A5004BA4FB /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseController.swift; path = ../FirebaseController.swift; sourceTree = "<group>"; };
 		FF0434CF1C5D37D1004BA4FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -243,7 +245,8 @@
 				FF56FC551C5C5E33001F5D00 /* ScannerViewController.swift */,
 				FF30FD751C59842700637A6C /* RegistrationTableViewController.swift */,
 				FF30FD7B1C5987E900637A6C /* RegistrationConfirmationTableViewController.swift */,
-				E685B3151C640B9D00726C63 /* UploadPhotoViewController.swift */,
+				E685B3191C65203500726C63 /* ProfilePhotoUploadViewController.swift */,
+				E685B3151C640B9D00726C63 /* AnimatedPhotoUpload.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -478,11 +481,12 @@
 				E60105291C57E3EA00536661 /* AppDelegate.swift in Sources */,
 				FFE418301C5FFEE00061BC73 /* PopOverViewController.swift in Sources */,
 				FF30FD6E1C59654900637A6C /* ScanController.swift in Sources */,
-				E685B3161C640B9D00726C63 /* UploadPhotoViewController.swift in Sources */,
+				E685B3161C640B9D00726C63 /* AnimatedPhotoUpload.swift in Sources */,
 				FFE4182B1C5ED73B0061BC73 /* LoginViewController.swift in Sources */,
 				FF30FD461C592C2B00637A6C /* UserController.swift in Sources */,
 				FF293ABB1C64354200B0D2C6 /* ContentController.swift in Sources */,
 				FF293AB51C63F87600B0D2C6 /* AnimationController.swift in Sources */,
+				E685B31A1C65203500726C63 /* ProfilePhotoUploadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -145,7 +145,7 @@ class UserController: UIViewController{
         }
     }
 
-    static func createUser(email: String, password: String, firstName: String?, middleName: String?, lastName: String?, username: String?, dateOfBirth: String?, city: String?, state: String?, zipcode: String?, licenseNumber: String?, completion: (success: Bool, user: User?, error: NSError?) -> Void) {
+    static func createUser(email: String, password: String, firstName: String?, lastName: String?, username: String?, dateOfBirth: String?, city: String?, state: String?, zipcode: String?, licenseNumber: String?, completion: (success: Bool, user: User?, error: NSError?) -> Void) {
 
         FirebaseController.base.createUser(email, password: password) { (error, response) -> Void in
 
@@ -155,7 +155,7 @@ class UserController: UIViewController{
                 completion(success: false, user: nil, error: error)
             } else {
                 if let uid = response["uid"] as? String {
-                    var user = User(email: email, uid: uid, firstName: firstName, middleName: middleName, lastName: lastName, username: username, dateOfBirth: dateOfBirth, city: city, state: state, zipcode: zipcode, licenseNumber: licenseNumber)
+                    var user = User(email: email, uid: uid, firstName: firstName, lastName: lastName, username: username, dateOfBirth: dateOfBirth, city: city, state: state, zipcode: zipcode, licenseNumber: licenseNumber)
                     user.save()
 
                     authenticateUser(email, password: password, completion: { (success, user) -> Void in
