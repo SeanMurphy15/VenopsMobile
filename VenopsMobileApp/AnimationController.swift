@@ -19,6 +19,8 @@ class AnimationController {
 
         textField.textColor = textColor
     }
+    
+    
 }
 
 

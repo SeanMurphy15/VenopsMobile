@@ -18,8 +18,6 @@ extension ScannerViewController{
         alertViewController.addAction(alertAction)
         presentViewController(alertViewController, animated: true, completion: nil)
     }
-
-   
 }
 
 extension RegistrationConfirmationTableViewController{

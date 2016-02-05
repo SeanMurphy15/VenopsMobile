@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NrO-vc-Omv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oMa-Ud-Goi">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -869,6 +869,47 @@
             </objects>
             <point key="canvasLocation" x="-507" y="-390"/>
         </scene>
+        <!--Upload Photo View Controller-->
+        <scene sceneID="tJF-Pr-RCB">
+            <objects>
+                <viewController id="oMa-Ud-Goi" customClass="UploadPhotoViewController" customModule="VenopsMobileApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4P9-QK-LQ4"/>
+                        <viewControllerLayoutGuide type="bottom" id="oWW-bK-6NX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pcr-af-a9N">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eo9-es-P7B">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eo9-es-P7B" firstAttribute="top" secondItem="4P9-QK-LQ4" secondAttribute="bottom" constant="130" id="I4N-Vn-mrM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eo9-es-P7B" secondAttribute="trailing" constant="130" id="MDy-il-k5d"/>
+                            <constraint firstItem="oWW-bK-6NX" firstAttribute="top" secondItem="eo9-es-P7B" secondAttribute="bottom" constant="150" id="cKB-Jk-5tK"/>
+                            <constraint firstItem="eo9-es-P7B" firstAttribute="leading" secondItem="Pcr-af-a9N" secondAttribute="leadingMargin" constant="130" id="sGT-vz-XxH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currentImage" destination="eo9-es-P7B" id="ggv-7A-pBs"/>
+                        <outlet property="pinchView" destination="HgM-xY-dAo" id="hdm-1G-8iI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b6c-gf-75i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="HgM-xY-dAo"/>
+                <tapGestureRecognizer id="Wi0-PO-LOV">
+                    <connections>
+                        <action selector="userTappedView:" destination="oMa-Ud-Goi" id="LXa-Mr-X1n"/>
+                        <outlet property="delegate" destination="Pcr-af-a9N" id="k8H-ab-suf"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1036" y="-2091"/>
+        </scene>
         <!--Registration Confirmation-->
         <scene sceneID="gds-BT-ry3">
             <objects>
@@ -1564,7 +1605,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UeL-ka-ukr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1784" y="-1369"/>
+            <point key="canvasLocation" x="1999" y="-1369"/>
         </scene>
     </scenes>
     <resources>
@@ -1574,7 +1615,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="1kQ-BK-ODb"/>
         <segue reference="0eD-OA-Tah"/>
+        <segue reference="ogT-TH-QVa"/>
         <segue reference="Q3l-3k-pBr"/>
-        <segue reference="ByX-9J-dWa"/>
     </inferredMetricsTieBreakers>
 </document>
