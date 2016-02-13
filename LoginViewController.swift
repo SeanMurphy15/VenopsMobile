@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
             self.generalAlert(title: "Incomplete Submission", message: "Make sure all fields are filled in!", actionTitle: "OK")
         }
     }
+    
 
     @IBAction func forgotPasswordButtonTapped(sender: AnyObject) {
 

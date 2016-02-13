@@ -846,13 +846,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebu-jJ-5mx">
-                                                    <rect key="frame" x="157" y="6" width="287" height="39"/>
+                                                    <rect key="frame" x="164" y="8" width="272" height="37"/>
                                                     <color key="backgroundColor" red="0.1647058824" green="0.58823529409999997" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="287" id="hDJ-yq-h7v"/>
-                                                        <constraint firstAttribute="height" constant="39" id="tkf-Uf-b7a"/>
+                                                        <constraint firstAttribute="width" constant="272" id="hDJ-yq-h7v"/>
+                                                        <constraint firstAttribute="height" constant="37" id="tkf-Uf-b7a"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <state key="normal" title="Scan Your ID to Automatically Register">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -867,7 +867,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ebu-jJ-5mx" firstAttribute="top" secondItem="FBs-hr-Qde" secondAttribute="topMargin" constant="-2" id="9p4-1q-cyP"/>
+                                                <constraint firstItem="Ebu-jJ-5mx" firstAttribute="top" secondItem="FBs-hr-Qde" secondAttribute="topMargin" id="9p4-1q-cyP"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ebu-jJ-5mx" secondAttribute="bottom" constant="-1" id="Lea-aS-MaR"/>
                                                 <constraint firstItem="Ebu-jJ-5mx" firstAttribute="centerX" secondItem="FBs-hr-Qde" secondAttribute="centerX" id="SqF-sF-dNi"/>
                                             </constraints>
@@ -1764,8 +1764,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="ByX-9J-dWa"/>
         <segue reference="Q3l-3k-pBr"/>
+        <segue reference="6iF-V9-dUY"/>
         <segue reference="JMP-iu-nLY"/>
-        <segue reference="0eD-OA-Tah"/>
         <segue reference="1kQ-BK-ODb"/>
     </inferredMetricsTieBreakers>
 </document>
